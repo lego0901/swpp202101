@@ -14,7 +14,7 @@ If you think your computer isn't powerful to do this, ask TAs via mail to provid
 
 We'll use https://github.com/aqjune/llvmscript.
 
-```
+```bash
 # Install dependencies
 apt update
 apt install git cmake ninja-build g++ python3-distutils zlib1g-dev libtinfo-dev libxml2-dev
@@ -35,6 +35,17 @@ python3 run.py build --cfg examples/llvm-12.0.json --type relassert --core <# of
 #   debug: slow build, large binaries; you can debug llvm using gdb/lldb
 # NOTE: if it aborts due to insufficient memory space, please re-try with
 #       smaller number of cores (it will restart from the last state)
+```
+
+For macOS (includes M1 chip), please install dependencies in the following way.
+
+```bash
+# Install dependencies for macOS
+brew install git cmake ninja gcc python3 zlib libxml2
+xcode-select --install
+export LIBRARY_PATH="$LIBRARY_PATH:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib"
+
+# Clone llvmscript, build LLVM in the same way above to Ubuntu...
 ```
 
 It is possible that building files may raise many warnings on the screen, but it is okay.
